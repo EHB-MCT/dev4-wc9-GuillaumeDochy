@@ -141,33 +141,32 @@ fun main(args: Array<String>) {
 
 
 //    part 2
-    var listOfNumbers: MutableList<Int>
 
-    for (i in indexer) {
+    val correctNumbs = read3.toMutableList()
+
+//    for (i in indexer) {
         for (r in read3){
             r.toIntArray()
-            if (r[i] == 1){
+            if (r[0] == 1){
                 amountOf1++
-            }else if(r[i] == 0){
+            }else if(r[0] == 0){
                 amountOf0++
             }
-            if (amountOf0 < amountOf1){
-                if (r[i] == 1){
-                    val correct= r.toIntArray()
-                    listOfNumbers = correct.toMutableList()
-                    println(listOfNumbers)
+            if (amountOf1 < amountOf0){
+                if (r[0] == 1){
+                    correctNumbs.remove(r)
                 }
-            } else if(amountOf0 > amountOf1){
-                if (r[i] == 0){
-                    val correct= r.toIntArray()
-                    listOfNumbers = correct.toMutableList()
-                    println(listOfNumbers)
+            } else if(amountOf1 > amountOf0){
+                if (r[0] == 0){
+                    correctNumbs.remove(r)
+                    println(correctNumbs)
                 }
             }
             amountOf0 = 0
             amountOf1 = 0
         }
-    }
+//    }
+    println(correctNumbs)
 
 
 
